@@ -77,7 +77,9 @@ def delete(id):
     conn.close()
     return redirect(url_for('home'))
 
-init_db()
+ if os.environ.get('FLASK_SKIP_INIT') != '1':
+
+ init_db()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
