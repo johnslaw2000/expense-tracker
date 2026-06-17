@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>💰 Expense Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>💰 Expense Tracker</h1>
+        <a href="/add" class="btn-primary">+ Add Expense</a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense[1] }}</td>
+                    <td>₦{{ expense[2] }}</td>
+                    <td>{{ expense[3] }}</td>
+                    <td>{{ expense[4] }}</td>
+                    <td><a href="/delete/{{ expense[0] }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
